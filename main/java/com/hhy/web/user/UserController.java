@@ -14,13 +14,14 @@ public class UserController {
         @Autowired UserDTO user;
         @Autowired UserMapper userMapper;
 
+
 @PostMapping("/{userId}/join")
 public void join(@PathVariable String userId,
-        @RequestBody UserDTO param){
+        @RequestBody User param){
     System.out.println(userId);
         System.out.println("join..");
     System.out.println(param.toString());
-      userMapper.insertUser(param);
+    userMapper.insertUser(param);
 
     }
 

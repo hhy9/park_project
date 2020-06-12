@@ -4,7 +4,7 @@
         <Layout>
             <template #vue-content>
                 <h1 style="text-align: center">Join</h1>
-                <b-form id="join-form" @submit="onSubmit" @reset="onReset" v-if="show">
+                <b-form id="join-form" @submit="onSubmit" @reset="onReset">
 
             <b-form-group id="input-group-1" label="Your Name:" label-for="input-1">
                 <b-form-input
@@ -53,13 +53,10 @@
         data() {
             return {
 
-                userName:'',
+                    userName: '',
                     userId: '',
                     password: '',
 
-
-
-                show: true
             }
         },
         methods: {
@@ -68,7 +65,7 @@
                 alert('서브밋')
                // this.$store.dispatch('user/join',{username:this.name,userid:this.userId,password:this.password})
                 axios.post(`${this.$store.state.user.context}users/${this.userId}/join`,
-                    {userName:this.userName,userId:this.userId,password: this.password},
+                    {userName: this.userName,userId: this.userId,password: this.password},
                     {
                         authorization: 'JWT fefege..',
                         Accept: 'application/json',

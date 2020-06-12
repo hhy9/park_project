@@ -48,6 +48,7 @@ const actions= {
     },
     async logout({commit}){
         commit('LOGOUT_COMMIT')
+
     }
 }
 
@@ -71,6 +72,8 @@ const mutations={
         localStorage.clear()
         state.auth = false
         state.user ={}
+        router.push('/')
+
     }
 }
 
