@@ -3,10 +3,10 @@
         <Layout>
 
             <template #vue-content>
-                <b-navbar-nav class="ml-auto">
+                <b-navbar-nav>
                     <b-nav-form>
-                        <b-form-input id="search" size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-                        <b-button @click="searchclick" size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                        <b-form-input @keyup.native.enter="searchclick" id="search" size="sm" class="mr-sm-2" placeholder="주소를 검색해주세요"></b-form-input>
+                        <b-button  @click="searchclick" size="sm" class="my-2 my-sm-0" >Search</b-button>
                     </b-nav-form>
 
 
@@ -74,7 +74,7 @@
                 let search = document.getElementById('search').value
                 if(search ==='') {search= "null"}
                 this.$store.dispatch('park/search',search)
-                alert('gg')
+
             }
         }
 

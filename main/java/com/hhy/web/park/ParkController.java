@@ -1,5 +1,6 @@
 package com.hhy.web.park;
 
+import com.hhy.web.Pager;
 import com.hhy.web.mappers.ParkMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.function.Function;
 public class ParkController {
     @Autowired ParkMapper parkMapper;
     @Autowired ParkDTO park;
+    @Autowired Pager pager;
 
     @GetMapping("/list")
     public List<ParkDTO> list(){
@@ -29,15 +31,15 @@ public class ParkController {
 
         if(search.equals("null")){
             System.out.println("검색어가없음");
-            park.setSearch("");
+            pager.setSearch("");
         }else{
             System.out.println("검색어"+search);
-            park.setSearch(search);
+            pager.setSearch(search);
         }
 
 
-        Function<ParkDTO,List<ParkDTO>> f= p->parkMapper.selectParks(p);
-        List<ParkDTO> list = f.apply(park);
+        Function<Pager,List<ParkDTO>> f= p->parkMapper.selectParks(p);
+        List<ParkDTO> list = f.apply(pager);
         map.put("list",list);
 
         return map;

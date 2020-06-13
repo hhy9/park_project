@@ -4,7 +4,7 @@
 <mapper namespace="com.hhy.web.mappers.ParkMapper">
 
     <select id="selectParks" resultType="com.hhy.web.park.ParkDTO"
-                                parameterType="com.hhy.web.park.ParkDTO">
+                                parameterType="com.hhy.web.Pager">
         select
         parkName,
         jibunAddress,
