@@ -5,7 +5,7 @@
 
     <select id="insertUser"
             parameterType="com.hhy.web.user.UserDTO">
-       insert into user (user_name,user_id,password)
+       insert  (user_name,user_id,password) into user
         values (#{userName},#{userId},#{password})
     </select>
 
@@ -20,11 +20,13 @@
     where user_id like #{userId} and password like #{password}
     </select>
 
-    <select id="lists" resultType="com.hhy.web.user.UserDTO">
+    <update id="updateUser" parameterType="com.hhy.web.user.UserDTO">
 
-
-
-    </select>
+        <if test="userName != null or password != null" >
+        update user set user_name = #{userName} , password=#{password}
+        where user_id like #{userId}
+        </if>
+    </update>
 
     <select id="deleteUser" parameterType="com.hhy.web.user.UserDTO">
 

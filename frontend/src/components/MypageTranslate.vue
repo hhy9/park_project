@@ -3,7 +3,8 @@
         <Layout>
 
             <template #vue-content v-if="auth">
-                <b-form id="mypage-form" @submit="onSubmit" @reset="onReset">
+                <h2 style="text-align: center;margin-top: 80px" >회원정보 수정 <b-badge>User</b-badge></h2>
+                <b-form id="mypage-form" @submit="onSubmit">
 
                     <b-form-group id="input-name" label="Your Name:" label-for="input-1">
                         <b-form-input
@@ -46,7 +47,8 @@
         components: {Layout},
         data(){
             return{
-
+                userName:'',
+                password:''
             }
         },
         computed:{
@@ -57,7 +59,7 @@
         },
         methods:{
             onSubmit(){
-
+                this.$store.dispatch('user/update',{userName:this.userName,userId:this.user.userId,password:this.password})
             }
         }
 
@@ -65,5 +67,9 @@
 </script>
 
 <style scoped>
+    #mypage-form{
+        width: 600px;
+        margin: 0 auto;
+    }
 
 </style>

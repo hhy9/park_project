@@ -67,6 +67,22 @@ const actions= {
             })
 
     },
+    update({commit},payload){
+        const url=state.context+`users/${payload.userId}/update`
+        const headers={
+            authorization: 'JWT fefege..',
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+        axios.post(url,payload,headers)
+            .then(({data})=>{
+                commit('UPDATE_USER',data)
+                router.push('/mypage')
+            })
+            .catch((err)=>{
+                alert(`에러${err}`)
+            })
+    }
 
 }
 
@@ -97,6 +113,11 @@ const mutations={
         localStorage.clear()
         state.auth=false
         state.user=data.user
+    },
+    UPDATE_USER(state,data){
+        state.auth=true,
+            state.user=data.user
+
     }
 
 }

@@ -51,5 +51,16 @@ public void join(
     userMapper.deleteUser(params);
 }
 
+@PostMapping("/{userId}/update")
+    public void update(@PathVariable String userId,
+            @RequestBody UserDTO params){
+
+    System.out.println("userid"+userId);
+    user.setUserName(params.getUserName());
+    user.setPassword(params.getPassword());
+    System.out.println(user.toString());
+    userMapper.updateUser(user);
+}
+
 
 }
