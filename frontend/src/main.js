@@ -18,5 +18,6 @@ new Vue({
   store,
   Vuex,
   axios,
+
   render: h => h(App)
 }).$mount('#app')

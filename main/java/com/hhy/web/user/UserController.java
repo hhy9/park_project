@@ -11,7 +11,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-        @Autowired UserDTO user;
+        UserDTO user = null;
         @Autowired UserMapper userMapper;
 
 
@@ -21,7 +21,10 @@ public void join(
 
         System.out.println("join..");
     System.out.println(param.toString());
-    userMapper.insertUser(param);
+    user = new UserDTO(param.getUserName(),param.getUserId(),param.getPassword());
+    userMapper.insertUser(user);
+   // userMapper.insertUser(param);
+
 
     }
 

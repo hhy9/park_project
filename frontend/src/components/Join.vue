@@ -27,6 +27,7 @@
                     <b-form-group id="input-group-3" label="Password:" label-for="input-3">
                         <b-form-input
                                 id="input-3"
+                                type="password"
                                 v-model="password"
                                 required
                                 placeholder="Enter password"

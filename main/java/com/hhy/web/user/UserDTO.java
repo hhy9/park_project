@@ -3,11 +3,16 @@ package com.hhy.web.user;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class UserDTO {
 
     private String userName,userId,password;
 
+    public UserDTO(String userName, String userId, String password) {
+        this.userName = userName;
+        this.userId = userId;
+        this.password = password;
+    }
 
     public String getUserName() {
         return userName;
