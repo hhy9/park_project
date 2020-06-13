@@ -7,10 +7,11 @@
                                 parameterType="com.hhy.web.park.ParkDTO">
         select
         parkName,
+        jibunAddress,
         roadAddress,
         sportsFacilities,
         playFacilities,
-        amenities,culturalFacilities,otherFacilities
+        culturalFacilities
         from park
         <if test="search != null">
         where roadAddress like '%${search}%'

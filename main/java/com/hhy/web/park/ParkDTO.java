@@ -14,9 +14,6 @@ public class ParkDTO {
     private String search;
 
 
-    public String getSearch() {
-        return search;
-    }
 
     public void setSearch(String search) {
         this.search = search;
@@ -49,9 +46,7 @@ public class ParkDTO {
         this.longitude = longitude;
     }
 
-    public String getAmenities() {
-        return amenities;
-    }
+
 
     public void setAmenities(String amenities) {
         this.amenities = amenities;
@@ -65,8 +60,8 @@ public class ParkDTO {
         this.culturalFacilities = culturalFacilities;
     }
 
-    public String getOtherFacilities() {
-        return otherFacilities;
+    public String getJibunAddress() {
+        return jibunAddress;
     }
 
     public void setOtherFacilities(String otherFacilities) {
