@@ -7,5 +7,6 @@ import java.util.List;
 
 @Repository
 public interface ParkMapper {
-    public List<ParkDTO> selectParks();
+    public List<ParkDTO> selectParks(ParkDTO search);
+    public List<ParkDTO> selectPark(String search);
 }

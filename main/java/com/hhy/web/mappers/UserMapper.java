@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
-        public void insertUser(User user);
+        public void insertUser(UserDTO user);
         public UserDTO login(UserDTO user);
+        public void deleteUser(UserDTO user);
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
         public UserMapper userMapper;
     @Override
-    public void join(User user) {
+    public void join(UserDTO user) {
                 userMapper.insertUser(user);
     }
 

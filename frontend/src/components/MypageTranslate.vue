@@ -14,14 +14,8 @@
                         ></b-form-input>
                     </b-form-group>
 
-                    <b-form-group id="input-group-2" label="userId:" label-for="input-2">
-                        <b-form-input
-                                id="input-2"
-                                v-model="userId"
-                                required
-                                placeholder="Enter userId"
-                        ></b-form-input>
-                    </b-form-group>
+                    <dt>userId</dt>
+                    <dd>{{user.userId}}</dd>
 
                     <b-form-group id="input-group-3" label="Password:" label-for="input-3">
                         <b-form-input
@@ -34,7 +28,7 @@
 
 
 
-                    <b-button type="submit" variant="primary" >Join</b-button>
+                    <b-button type="submit" variant="primary" >수정하기</b-button>
 
 
                 </b-form>
@@ -58,8 +52,14 @@
         computed:{
             ...mapState({
                 auth:state=>state.user.auth,
+                user:state=>state.user.user
             })
         },
+        methods:{
+            onSubmit(){
+
+            }
+        }
 
     }
 </script>

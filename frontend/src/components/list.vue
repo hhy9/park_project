@@ -3,7 +3,14 @@
         <Layout>
 
             <template #vue-content>
+                <b-navbar-nav class="ml-auto">
+                    <b-nav-form>
+                        <b-form-input id="search" size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+                        <b-button @click="searchclick" size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                    </b-nav-form>
 
+
+                </b-navbar-nav>
 
                 <div class="overflow-auto">
 
@@ -42,7 +49,7 @@
         components: {Layout},
         mixins:[proxy],
         created() {
-            let json=proxy.methods.paging(`${this.$store.state.park.context}/list`)
+            let json=proxy.methods.paging(`${this.$store.state.park.context}/null/search`)
             this.$store.state.park.list=json.list
         },
         data(){
@@ -60,6 +67,14 @@
             }),
             rows(){
                 return this.list.length
+            },
+        },
+        methods:{
+            searchclick(){
+                let search = document.getElementById('search').value
+                if(search ==='') {search= "null"}
+                this.$store.dispatch('park/search',search)
+                alert('gg')
             }
         }
 

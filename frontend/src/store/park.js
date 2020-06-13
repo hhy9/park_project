@@ -1,4 +1,5 @@
 import router from '@/router'
+import axios from "axios";
 
 
 const state={
@@ -12,11 +13,24 @@ const actions={
         router.push('/list')
 
 
+    },
+    async search({commit},search){
+        axios.get(state.context+`/${search}/search`)
+            .then(({data})=>{
+                commit('SEARCH',data)
+
+            })
+            .catch(()=>{
+                alert('오류')
+            })
     }
 }
 const mutations= {
     PARK(state,data){
-        state.list=data
+        state.list=data.list
+    },
+    SEARCH(state,data){
+        state.list =data.list
     }
 }
 

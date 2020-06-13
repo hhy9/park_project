@@ -15,10 +15,10 @@ public class UserController {
         @Autowired UserMapper userMapper;
 
 
-@PostMapping("/{userId}/join")
-public void join(@PathVariable String userId,
-        @RequestBody User param){
-    System.out.println(userId);
+@PostMapping("/join")
+public void join(
+        @RequestBody UserDTO param){
+
         System.out.println("join..");
     System.out.println(param.toString());
     userMapper.insertUser(param);
@@ -41,4 +41,12 @@ public void join(@PathVariable String userId,
     return map;
 
 }
+
+@PostMapping("/delete")
+    public void delete(@RequestBody UserDTO params){
+    System.out.println(params.toString());
+    userMapper.deleteUser(params);
+}
+
+
 }

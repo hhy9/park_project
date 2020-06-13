@@ -11,7 +11,16 @@ public class ParkDTO {
     private String adminNumber,parkName,parkSortation,jibunAddress,
             roadAddress,latitude,longitude,sportsFacilities,playFacilities,amenities,culturalFacilities,otherFacilities;
 
+    private String search;
 
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
 
     public void setAdminNumber(String adminNumber) {
         this.adminNumber = adminNumber;

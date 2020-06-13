@@ -49,7 +49,25 @@ const actions= {
     async logout({commit}){
         commit('LOGOUT_COMMIT')
 
-    }
+    },
+    async withdraw({commit},payload){
+        const url=state.context+`users/delete`
+        const headers = {
+            authorization: 'JWT fefege..',
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+        axios.post(url,payload,headers)
+            .then(({data})=>{
+                commit('DROP_USER',data)
+                router.push('/')
+            })
+            .catch((err)=>{
+                alert(`에러${err}`)
+            })
+
+    },
+
 }
 
 const mutations={
@@ -74,7 +92,13 @@ const mutations={
         state.user ={}
         router.push('/')
 
+    },
+    DROP_USER(state,data){
+        localStorage.clear()
+        state.auth=false
+        state.user=data.user
     }
+
 }
 
 const getters={

@@ -7,7 +7,7 @@ export const proxy={
 
                axios.get(url)
                 .then(({data})=>{
-                    data.forEach(
+                    data.list.forEach(
                         elem=>{
                             list.push(elem)
                         }

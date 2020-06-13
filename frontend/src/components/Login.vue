@@ -23,7 +23,7 @@
         </b-form>
     </div><br />
                 <div >
-                    <b-button @click="login" variant="primary">Login</b-button>
+                    <b-button style="margin-left: 400px" @click="login" variant="primary">Login</b-button>
                 </div>
 </template>
 

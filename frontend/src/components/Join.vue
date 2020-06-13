@@ -64,7 +64,7 @@
             onSubmit() {
                 alert('서브밋')
                // this.$store.dispatch('user/join',{username:this.name,userid:this.userId,password:this.password})
-                axios.post(`${this.$store.state.user.context}users/${this.userId}/join`,
+                axios.post(`${this.$store.state.user.context}users/join`,
                     {userName: this.userName,userId: this.userId,password: this.password},
                     {
                         authorization: 'JWT fefege..',

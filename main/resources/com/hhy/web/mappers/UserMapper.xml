@@ -4,8 +4,8 @@
 <mapper namespace="com.hhy.web.mappers.UserMapper">
 
     <insert id="insertUser"
-            parameterType="com.hhy.web.user.User">
-        insert into user
+            parameterType="com.hhy.web.user.UserDTO">
+       insert (password,user_id userId,user_name userName) into user
         values (${password},${userId},${userName})
     </insert>
 
@@ -25,6 +25,14 @@
 
 
     </select>
+
+    <select id="deleteUser" parameterType="com.hhy.web.user.UserDTO">
+
+        delete from user where user_id like #{userId}
+
+    </select>
+    
+
 
 
 </mapper>

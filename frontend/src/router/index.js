@@ -5,6 +5,7 @@ import Home from '../components/Home'
 import Join from '../components/Join'
 import list from '../components/list'
 import Mypage from "../components/Mypage";
+import MypageTranslate from "../components/MypageTranslate";
 Vue.use(Router)
 
 export default new Router({
@@ -14,7 +15,8 @@ export default new Router({
         {path:'/login',component: Login},
         {path: '/join',component: Join},
         {path:'/list',component: list},
-        {path:'/mypage',component: Mypage}
+        {path:'/mypage',component: Mypage},
+        {path: '/mypagetranslate',component: MypageTranslate}
     ]
 })
 
