@@ -37,6 +37,7 @@ const actions= {
             .then(({data})=>{
                 if(data.result){
                     commit('LOGIN_COMMIT',data)
+
                 }else{
                     commit('FAIL_COMMIT')
                 }
@@ -46,6 +47,7 @@ const actions= {
                 state.fail=true
             })
     },
+
     async logout({commit}){
         commit('LOGOUT_COMMIT')
 

@@ -13,6 +13,7 @@ import java.util.Map;
 public class UserController {
         UserDTO user = null;
         @Autowired UserMapper userMapper;
+        @Autowired UserRepository userRepository;
 
 
 @PostMapping("/join")
@@ -24,6 +25,8 @@ public void join(
     user = new UserDTO(param.getUserName(),param.getUserId(),param.getPassword());
     userMapper.insertUser(user);
    // userMapper.insertUser(param);
+
+   
 
 
     }
@@ -44,6 +47,7 @@ public void join(
     return map;
 
 }
+
 
 @PostMapping("/delete")
     public void delete(@RequestBody UserDTO params){

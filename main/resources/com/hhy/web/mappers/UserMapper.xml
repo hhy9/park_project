@@ -5,7 +5,7 @@
 
     <select id="insertUser"
             parameterType="com.hhy.web.user.UserDTO">
-       insert  (user_name,user_id,password) into user
+       insert into user (user_name,user_id,password)
         values (#{userName},#{userId},#{password})
     </select>
 
