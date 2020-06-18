@@ -14,7 +14,7 @@
         culturalFacilities
         from park
         <if test="search != null">
-        where roadAddress like '%${search}%'
+        where roadAddress like '%${search}%' or jibunAddress like '%${search}%'
         </if>
     </select>
 

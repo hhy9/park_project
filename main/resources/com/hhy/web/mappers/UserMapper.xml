@@ -11,7 +11,6 @@
 
     <select id="login" resultType="com.hhy.web.user.UserDTO"
                         parameterType="com.hhy.web.user.UserDTO">
-
     select
     user_name userName,
     user_id userId,
@@ -21,7 +20,6 @@
     </select>
 
     <update id="updateUser" parameterType="com.hhy.web.user.UserDTO">
-
         <if test="userName != null or password != null" >
         update user set user_name = #{userName} , password=#{password}
         where user_id like #{userId}
@@ -29,11 +27,26 @@
     </update>
 
     <select id="deleteUser" parameterType="com.hhy.web.user.UserDTO">
-
         delete from user where user_id like #{userId}
-
     </select>
-    
+
+    <select id="list" resultType="com.hhy.web.user.UserDTO">
+        select
+        user_name userName,
+        user_id userId,
+        password password
+        from user
+    </select>
+
+    <select id="selectOne" resultType="com.hhy.web.user.UserDTO"
+                            parameterType="String">
+        select
+        user_name userName,
+        user_id userId,
+        password password
+        from user
+        where user_id like '%${value}'
+    </select>
 
 
 

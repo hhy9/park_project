@@ -49,6 +49,12 @@
             login(){
 
                 this.$store.dispatch('user/login',{userId:this.userId,password:this.password})
+                this.$cookies.set('value',this.$store.state.user,'1h')
+                console.log(this.$cookies.get('value'))
+
+            },
+            created () {
+                this.$store.state.user = this.$cookies.get('value')
             }
         }
 

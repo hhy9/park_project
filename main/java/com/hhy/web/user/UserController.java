@@ -17,19 +17,28 @@ public class UserController {
 
 
 @PostMapping("/join")
-public void join(
+public Map<?,?> join(
         @RequestBody UserDTO param){
-
+    Map map = new HashMap<>();
         System.out.println("join..");
     System.out.println(param.toString());
-    user = new UserDTO(param.getUserName(),param.getUserId(),param.getPassword());
-    userMapper.insertUser(user);
-   // userMapper.insertUser(param);
-
-   
+    System.out.println(userMapper.selectOne(param.getUserId()));
 
 
-    }
+        if (userMapper.selectOne(param.getUserId()) !=null) {
+            map.put("popupResult", "이미 있는 아이디입니다.");
+            map.put("result", false);
+        } else {
+            user = new UserDTO(param.getUserName(), param.getUserId(), param.getPassword());
+            userMapper.insertUser(user);
+            map.put("popupResult", "가입완료");
+            map.put("result", true);
+        }
+    System.out.println(map.get("popupResult"));
+    return map;
+}
+
+
 
 @PostMapping("/{userId}/access")
     public Map<?,?> login(@PathVariable String userId,

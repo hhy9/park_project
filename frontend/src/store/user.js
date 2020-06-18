@@ -10,7 +10,7 @@ const state={
 
 const actions= {
     async join({commit},payload) {
-        const url = state.context + `users/${payload.userId}/join`
+        const url = state.context + `users/join`
         const headers = {
             authorization: 'JWT fefege..',
             Accept: 'application/json',
@@ -18,7 +18,7 @@ const actions= {
         }
         axios.post(url,payload,headers)
             .then(({data}) => {
-                commit('JOIN')
+                commit('JOIN',data)
                console.log(data)
             })
             .catch((err) => {
@@ -27,6 +27,8 @@ const actions= {
     },
 
     async login({commit},payload){
+        //return new Promise((resolve,reject)=>{
+        //})
         const url = state.context + `users/${payload.userId}/access`
         const headers = {
             authorization: 'JWT fefege..',
@@ -95,14 +97,15 @@ const mutations={
         localStorage.setItem('token',data.token)
         localStorage.setItem('userId',data.user.userId)
         router.push('/')
+
     },
     FAIL_COMMIT(state){
         state.fail=true
         alert('아이디 또는 비밀번호가 맞지않습니다.')
     },
 
-    JOIN(){
-        alert('뮤테이션 조인')
+    JOIN(state,data){
+        alert(data.popupResult)
     },
     LOGOUT_COMMIT(state){
         localStorage.clear()

@@ -48,7 +48,7 @@
 
 <script>
     import Layout from "./common/Layout";
-    import axios from 'axios'
+    //import axios from 'axios'
     export default {
         components: {Layout},
         data() {
@@ -61,7 +61,10 @@
             }
         },
         methods: {
-
+            onSubmit(){
+                this.$store.dispatch('user/join',{userName: this.userName,userId: this.userId,password: this.password})
+            }
+            /*
             onSubmit() {
                 alert('서브밋')
                // this.$store.dispatch('user/join',{username:this.name,userid:this.userId,password:this.password})
@@ -79,6 +82,8 @@
                         alert(`조인에러${err}`)
                     })
             }
+            */
+
         ,
 
         onReset(evt) {

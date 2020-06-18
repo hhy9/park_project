@@ -8,16 +8,19 @@ import router from './router'
 import {store} from './store'
 import Vuex from 'vuex'
 import axios from 'axios'
+import cookies from 'vue-cookies'
 Vue.use(Vuex)
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(cookies)
 new Vue({
   vuetify,
   router,
   store,
   Vuex,
   axios,
+  cookies,
 
   render: h => h(App)
 }).$mount('#app')

@@ -1,24 +1,21 @@
 <template>
     <div>
         <Layout>
-
             <template #vue-content>
                 <b-navbar-nav>
                     <b-nav-form>
                         <b-form-input @keyup.native.enter="searchclick" id="search" size="sm" class="mr-sm-2" placeholder="주소를 검색해주세요"></b-form-input>
                         <b-button  @click="searchclick" size="sm" class="my-2 my-sm-0" >Search</b-button>
                     </b-nav-form>
-
-
                 </b-navbar-nav>
 
                 <div class="overflow-auto">
-
                     <b-table
                             id="my-table"
                             :items="list"
                             :per-page="perPage"
                             :current-page="currentPage"
+                            :fields="fields"
                             small
                     ></b-table>
 
@@ -33,8 +30,6 @@
                 </div>
             </template>
         </Layout>
-
-
     </div>
 </template>
 
@@ -56,9 +51,14 @@
             return{
                 perPage: 10,
                 currentPage: 1,
-
-
-
+                fields:[
+                    {key:'parkName', label:'공원 이름'},
+                    {key:'roadAddress', label:'도로명 주소'},
+                    {key:'jibunAddress', label:'지번 주소'},
+                    {key:'sportsFacilities', label:'체육 시설'},
+                    {key:'playFacilities', label:'놀이 시설'},
+                    {key:'culturalFacilities', label:'문화 시설'},
+                ]
             }
         },
         computed:{
