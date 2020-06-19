@@ -49,6 +49,9 @@
         methods: {
             created () {
                 this.$store.state.user = this.$cookies.get('value')
+            },
+            updated (){
+                this.$store.state.user = this.$cookies.get('value')
             }
         }
 

@@ -27,27 +27,32 @@ const actions= {
     },
 
     async login({commit},payload){
-        //return new Promise((resolve,reject)=>{
-        //})
-        const url = state.context + `users/${payload.userId}/access`
-        const headers = {
-            authorization: 'JWT fefege..',
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-        }
-        axios.post(url,payload,headers)
-            .then(({data})=>{
-                if(data.result){
-                    commit('LOGIN_COMMIT',data)
+        return new Promise((resolve,reject)=>{
+            const url = state.context + `users/${payload.userId}/access`
+            const headers = {
+                authorization: 'JWT fefege..',
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+            axios.post(url,payload,headers)
+                .then(({data})=>{
+                    if(data.result){
+                        commit('LOGIN_COMMIT',data)
+                        resolve(true);
 
-                }else{
-                    commit('FAIL_COMMIT')
-                }
-            })
-            .catch(()=>{
-                alert('서버 전송 실패')
-                state.fail=true
-            })
+                    }else{
+                        commit('FAIL_COMMIT')
+                    }
+                })
+                .catch((error)=>{
+                    alert('서버 전송 실패')
+                    state.fail=true
+                    reject(error)
+                })
+
+
+        })
+
     },
 
     async logout({commit}){
