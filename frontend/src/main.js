@@ -8,17 +8,15 @@ import router from './router'
 import {store} from './store'
 import Vuex from 'vuex'
 import axios from 'axios'
-import cookies from 'vue-cookies'
 
-import LifeCycleLogger from './modules/lifecycle-Loger.plugin.js'
 
 Vue.use(Vuex)
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
-Vue.use(cookies)
 
-Vue.use(LifeCycleLogger, { beforeMount: false })
+
+
 
 new Vue({
   vuetify,
@@ -26,6 +24,6 @@ new Vue({
   store,
   Vuex,
   axios,
-  cookies,
+
   render: h => h(App)
 }).$mount('#app')

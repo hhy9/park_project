@@ -27,7 +27,6 @@ const actions= {
     },
 
     async login({commit},payload){
-        return new Promise((resolve,reject)=>{
             const url = state.context + `users/${payload.userId}/access`
             const headers = {
                 authorization: 'JWT fefege..',
@@ -38,20 +37,15 @@ const actions= {
                 .then(({data})=>{
                     if(data.result){
                         commit('LOGIN_COMMIT',data)
-                        resolve(true);
-
+                       
                     }else{
                         commit('FAIL_COMMIT')
                     }
                 })
-                .catch((error)=>{
+                .catch(()=>{
                     alert('서버 전송 실패')
                     state.fail=true
-                    reject(error)
                 })
-
-
-        })
 
     },
 
@@ -100,8 +94,12 @@ const mutations={
         state.auth=true
         state.user=data.user
         localStorage.setItem('token',data.token)
+
         localStorage.setItem('userId',data.user.userId)
+        localStorage.setItem('password',data.user.password)
+        console.log(data.user.userId)
         router.push('/')
+
 
     },
     FAIL_COMMIT(state){

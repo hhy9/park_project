@@ -51,6 +51,9 @@
             withdraw(){
                 this.$store.dispatch('user/withdraw',{userName:this.user.userName,userId:this.user.userId,password:this.user.password})
             },
+            created() {
+                localStorage.getItem('token')
+            }
 
         }
 

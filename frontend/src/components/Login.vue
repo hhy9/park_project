@@ -47,33 +47,10 @@
         },
         methods:{
             login(){
-                console.log(this.$store.state.user)
-                this.$cookies.set('value',this.$store.state.user,'1h')
                 this.$store.dispatch('user/login',{userId:this.userId,password:this.password})
+            },
 
-                console.log(this.$cookies.get('value'))
 
-            },
-            created () {
-                console.log('created = ' + this.$cookies.get('value'))
-                this.$store.state.user = this.$cookies.get('value')
-            },
-            updated () {
-                console.log('updated = ' + this.$cookies.get('value'))
-                this.$store.state.user = this.$cookies.get('value')
-            },
-            beforeMount () {
-                console.log('updated = ' + this.$cookies.get('value'))
-                this.$store.state.user = this.$cookies.get('value')
-            },
-            mounted () {
-                console.log('updated = ' + this.$cookies.get('value'))
-                this.$store.state.user = this.$cookies.get('value')
-            },
-            destroyed () {
-                console.log('updated = ' + this.$cookies.get('value'))
-                this.$store.state.user = this.$cookies.get('value')
-            }
         },
 
 

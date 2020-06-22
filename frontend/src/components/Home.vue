@@ -13,19 +13,19 @@
                     >
                         <b-carousel-slide
                                 caption="First slide"
-                                img-src="https://picsum.photos/1024/480/?image=10"
+                                img-src="https://cdn.pixabay.com/photo/2018/08/10/03/19/lane-3596034_1280.jpg"
                         ></b-carousel-slide>
                         <b-carousel-slide
                                 caption="Second Slide"
-                                img-src="https://picsum.photos/1024/480/?image=12"
+                                img-src="https://cdn.pixabay.com/photo/2018/03/15/21/10/tree-3229512_1280.jpg"
                         ></b-carousel-slide>
                         <b-carousel-slide
                                 caption="Third Slide"
-                                img-src="https://picsum.photos/1024/480/?image=22"
+                                img-src="https://cdn.pixabay.com/photo/2017/12/11/21/17/bridge-3013297_1280.jpg"
                         ></b-carousel-slide>
                         <b-carousel-slide
                                 caption="Fourth Slide"
-                                img-src="https://picsum.photos/1024/480/?image=23"
+                                img-src="https://cdn.pixabay.com/photo/2015/04/20/13/44/ferris-wheel-731511_1280.jpg"
                         ></b-carousel-slide>
                     </b-carousel>
 
@@ -47,12 +47,7 @@
             }
         },
         methods: {
-            created () {
-                this.$store.state.user = this.$cookies.get('value')
-            },
-            updated (){
-                this.$store.state.user = this.$cookies.get('value')
-            }
+
         }
 
     }
